@@ -18,68 +18,125 @@
 			text-align: center;
 		}
 
+		#test {
+			margin-top: 25px;
+			font-size: 21px;
+
+			-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+			-moz-animation: fadein 2s; /* Firefox < 16 */
+			-ms-animation: fadein 2s; /* Internet Explorer */
+			-o-animation: fadein 2s; /* Opera < 12.1 */
+			animation: fadein 2s;
+		}
+
+		@keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+		/* Firefox < 16 */
+		@-moz-keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+		/* Safari, Chrome and Opera > 12.1 */
+		@-webkit-keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+		/* Internet Explorer */
+		@-ms-keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+		/* Opera < 12.1 */
+		@-o-keyframes fadein {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
 	</style>
 </head>
 <body>
-<!--BODY-->
-<br>
-<!--Header-->
-<div class="center">
-	<img src="./assets/img/ziz_logo_dark.png" alt="ZIZ logo"><br>
-	<i><p align="middle">Securing your devices.</p></i>
-</div>
-<br><hr><br>
-<!--Background color change-->
-<p id="changed">
-<!--On button-->
-<form>
-	<input type="button" id="button" value="On" name="On" style="display: block; margin: auto;" onclick="turnOn('button')">
-</form>
-<p id="on"></p><br>
-<!--Off button-->
-<form>
-	<input type="button" id="button" value="Off" name="Off" style="display: block; margin: auto;" onclick="turnOff('button')">
-</form>
-<p id="off"></p><br>
-<!--Request Bin link to view JSON-->
-<button class="btn-primary" style="display: block; margin: auto;""><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
-</p>
-<br><br>
-<!--Request Bin data-->
-<ul>
-	<li>Trigger: <span id="trigger">NULL</span></li>
-	<li>Timestamp: <span id="timestamp">NULL</span></li>
-	<li>Device: <span id="device">
+	<!--BODY-->
+	<br>
+	<!--Header-->
+	<div class="center">
+		<img src="./assets/img/ziz_logo_dark.png" alt="ZIZ logo"><br>
+		<i><p align="middle">Securing your devices.</p></i>
+	</div>
+	<br><hr><br>
+	<!--Background color change-->
+	<p id="changed">
+		<!--On button-->
+		<form>
+			<input type="button" id="button" value="On" name="On" style="display: block; margin: auto;" onclick="turnOn('button')">
+		</form>
+		<p id="on"></p><br>
+		<!--Off button-->
+		<form>
+			<input type="button" id="button" value="Off" name="Off" style="display: block; margin: auto;" onclick="turnOff('button')">
+		</form>
+		<p id="off"></p><br>
+		<!--Request Bin link to view JSON-->
+		<button class="btn-primary" style="display: block; margin: auto;""><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
+	</p>
+	<br><br>
+	<!--Request Bin data-->
 		<ul>
-			<li>ID: <span id="device-id">NULL</span></li>
-			<li>NAME: <span id="device-name">NULL</span></li>
-			<li>SERIAL: <span id="device-serial">NULL</span></li>
+		<div id="test">
+			<li>Trigger: <span id="trigger">X-Axis changed</span></li>
+		</div>
+			<div id="test">
+				<li>Timestamp: <span id="timestamp">2017-09-10T18:35:48.125Z</span></li>
+			</div>
+			<div id="test">
+				<li>Device: <span id="device">
+			</div>
+				<ul>
+				<div id="test">
+				<li>ID: <span id="device-id">79d4a3addd3e385336822d7509827dfa</span></li>
+			</div>
+					<div id="test">
+				<li>NAME: <span id="device-name">Virtual Starter Kit</span></li>
+			</div>
+					<div id="test">
+				<li>SERIAL: <span id="device-serial">vstarterkit001</span></li>
+			</div>
+					
+				</ul>
+			</span></li>
+			<div id="test">
+				<li>Message: <span id="custom_data">ZiZ has been activated</span></li>
+			</div>
+			
 		</ul>
-	</span></li>
-	<li>Message: <span id="custom_data">NULL</span></li>
-</ul>
 
-<!--SCRIPT-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<script type="text/javascript">
+
+	<!--SCRIPT-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script type="text/javascript">
 // Request bin JSON
 
 $.ajax({
-    url: 'https://raw.githubusercontent.com/TimothyLe/ziz/master/trigger.json'
-    dataType: 'json',
-    success: function( data )
-    {
-        var m2x = data.m2x;
+	url: 'https://raw.githubusercontent.com/TimothyLe/ziz/master/trigger.json'
+	dataType: 'json',
+	success: function( data )
+	{
+		var m2x = data.m2x;
 
-        $('#trigger').text( m2x.trigger );
-        $('#timestamp').text( m2x.timestamp );
-        $('#device').text( m2x.device );
-        $('#device-id').text( m2x. );
-        $('#device-name').text( m2x. );
-        $('#device-serial').text( m2x. );
-        $('#custom_data').text( m2x.custom_data );
-    }
+		$('#trigger').text( m2x.trigger );
+		$('#timestamp').text( m2x.timestamp );
+		$('#device').text( m2x.device );
+		$('#device-id').text( m2x. );
+		$('#device-name').text( m2x. );
+		$('#device-serial').text( m2x. );
+		$('#custom_data').text( m2x.custom_data );
+	}
 });
 
 //TODO: Access JSON file!
@@ -107,37 +164,37 @@ var getJSON = function(url, callback){
  * The function to change the background color based on 
  * HTTP response.
  */
-function x-change(){
-	getJSON('https://requestb.in/vbe4o6vb?inspect#1b501f',
-		function(err, data){
-			if(err !== null){
-				alert('Something went wrong: ' + err);
-			} else {
-				alert('Your query count: ' + data.query.count);
-			}
-		});
-	if(jsonFlag){
-		document.getElementById("changed").style.background = 'red';
-	} else {
-		alert('Sorry, could not get JSON')
-	}
-}
+ function x-change(){
+ 	getJSON('https://requestb.in/vbe4o6vb?inspect#1b501f',
+ 		function(err, data){
+ 			if(err !== null){
+ 				alert('Something went wrong: ' + err);
+ 			} else {
+ 				alert('Your query count: ' + data.query.count);
+ 			}
+ 		});
+ 	if(jsonFlag){
+ 		document.getElementById("changed").style.background = 'red';
+ 	} else {
+ 		alert('Sorry, could not get JSON')
+ 	}
+ }
 
-var count = 1;
-var count2 = 1;
+ var count = 1;
+ var count2 = 1;
 /*
  * On button clicked 
  */
-function turnOn(btn){
-	var property = document.getElementById(btn);
-        if (count == 0) {
-            property.style.backgroundColor = "#000000"
-            count = 1;        
-        }
-        else {
-            property.style.backgroundColor = "#7FFF00"
-            count = 0;
-        }
+ function turnOn(btn){
+ 	var property = document.getElementById(btn);
+ 	if (count == 0) {
+ 		property.style.backgroundColor = "#000000"
+ 		count = 1;        
+ 	}
+ 	else {
+ 		property.style.backgroundColor = "#7FFF00"
+ 		count = 0;
+ 	}
 	// document.getElementByTagName('button').innerHTML = "ZIZ is now activated";
 	// document.getElementById("colorOn").style.background = 'green';
 	// $("#on").on('click', function(){
@@ -149,16 +206,16 @@ function turnOn(btn){
 /*
  * Off button clicked
  */
-function turnOff(btn){
-	var property = document.getElementById(btn);
-        if (count2 == 0) {
-            property.style.backgroundColor = "#000000"
-            count2 = 1;        
-        }
-        else {
-            property.style.backgroundColor = "#7FFF00"
-            count2 = 0;
-        }
+ function turnOff(btn){
+ 	var property = document.getElementById(btn);
+ 	if (count2 == 0) {
+ 		property.style.backgroundColor = "#000000"
+ 		count2 = 1;        
+ 	}
+ 	else {
+ 		property.style.backgroundColor = "#7FFF00"
+ 		count2 = 0;
+ 	}
 	// document.getElementByTagName('button').innerHTML = "ZIZ is now deactivated";
 // 	document.getElementById("colorOff").style.background = 'grey';
 // 	$("#off").on('click', function(){
