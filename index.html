@@ -3,6 +3,7 @@
 <head>
 	<!--META-->
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--TITLE-->
 	<title>ZIZ</title>
 	<!--FAVICON-->
@@ -13,31 +14,31 @@
 	<style type="text/css">
 		.center {
 			margin: auto; 
-			display: inline-block;
-			padding: 30px;
-			height: 200px;
-			vertical-align: middle;
+			display: block;
+			text-align: center;
 		}
-		.center p{
-			line-height: 1.5;    		
-    		text-align: center;
-		}
+
 	</style>
 </head>
 <body>
 <!--BODY-->
 <br>
+<!--Header-->
 <div class="center">
 	<img src="./assets/img/ziz_logo_dark.png" alt="ZIZ logo"><br>
 	<i><p align="middle">Securing your devices.</p></i>
 </div>
 <br><hr><br>
+<!--Background color change-->
 <p id="changed">
-	<button onclick="turnOn()" style="float: center; margin: auto;">On</button><br>
+<!--On button-->
+	<button onclick="turnOn()" style="display: block; margin: auto;">On</button><br>
 <p id="on"></p><br>
-<button onclick="turnOff()" style="float: center; margin: auto;">Off</button><br>
+<!--Off button-->
+<button onclick="turnOff()" style="display: block; margin: auto;">Off</button><br>
 <p id="off"></p><br>
-<button class="btn-primary"><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
+<!--Request Bin link to view JSON-->
+<button class="btn-primary" style="display: block; margin: auto;""><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
 </p>
 
 <!--SCRIPT-->
@@ -45,6 +46,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script type="text/javascript">
 // Request bin JSON
+/*
+ * The variable for the JSON flag
+ */
 var jsonFlag = false;
 var getJSON = function(url, callback){
 	var xhr = new XMLHttpRequest();
@@ -62,6 +66,10 @@ var getJSON = function(url, callback){
 	xhr.send();
 };
 
+/*
+ * The function to change the background color based on 
+ * HTTP response.
+ */
 function x-change(){
 	getJSON('https://requestb.in/vbe4o6vb?inspect#1b501f',
 		function(err, data){
@@ -78,6 +86,9 @@ function x-change(){
 	}
 }
 
+/*
+ * On button clicked 
+ */
 function turnOn(){
 	document.getElementById("on").innerHTML = "ZIZ is now activated";
 	// document.getElementById("colorOn").style.background = 'green';
@@ -86,6 +97,10 @@ function turnOn(){
 	// 	$("#colorOn").fadeOut();
 	// });
 }
+
+/*
+ * Off button clicked
+ */
 function turnOff(){
 	document.getElementById("off").innerHTML = "ZIZ is now deactivated";
 // 	document.getElementById("colorOff").style.background = 'grey';
