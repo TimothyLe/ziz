@@ -1,0 +1,24 @@
+{
+	"trigger":"X-Axis changed"
+	,"timestamp":"2017-09-10T18:35:48.125Z"
+	,"event":"fired"
+	,"device":{
+		"id":"79d4a3addd3e385336822d7509827dfa"
+		,"name":"Virtual Starter Kit"
+		,"serial":"vstarterkit001"
+	}
+	,"conditions":{
+		"accelX":{
+		"changed":true
+		}
+	}
+	,"values":{
+		"accelX":{
+		"value":"-0.019"
+		,"timestamp":"2017-09-10T18:35:48.125Z"
+		,"unit":"g"
+		}
+	}
+	,"timeframe":0
+	,"custom_data":"Hello ZiZ"
+}
