@@ -32,24 +32,61 @@
 <!--Background color change-->
 <p id="changed">
 <!--On button-->
-	<button onclick="turnOn()" style="display: block; margin: auto;">On</button><br>
+<form>
+	<input type="button" id="button" value="On" name="On" style="display: block; margin: auto;" onclick="turnOn('button')">
+</form>
 <p id="on"></p><br>
 <!--Off button-->
-<button onclick="turnOff()" style="display: block; margin: auto;">Off</button><br>
+<form>
+	<input type="button" id="button" value="Off" name="Off" style="display: block; margin: auto;" onclick="turnOff('button')">
+</form>
 <p id="off"></p><br>
 <!--Request Bin link to view JSON-->
 <button class="btn-primary" style="display: block; margin: auto;""><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
 </p>
+<br><br>
+<!--Request Bin data-->
+<ul>
+	<li>Trigger: <span id="trigger">NULL</span></li>
+	<li>Timestamp: <span id="timestamp">NULL</span></li>
+	<li>Device: <span id="device">
+		<ul>
+			<li>ID: <span id="device-id">NULL</span></li>
+			<li>NAME: <span id="device-name">NULL</span></li>
+			<li>SERIAL: <span id="device-serial">NULL</span></li>
+		</ul>
+	</span></li>
+	<li>Message: <span id="custom_data">NULL</span></li>
+</ul>
 
 <!--SCRIPT-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script type="text/javascript">
 // Request bin JSON
+
+$.ajax({
+    url: 'https://raw.githubusercontent.com/TimothyLe/ziz/master/trigger.json'
+    dataType: 'json',
+    success: function( data )
+    {
+        var m2x = data.m2x;
+
+        $('#trigger').text( m2x.trigger );
+        $('#timestamp').text( m2x.timestamp );
+        $('#device').text( m2x.device );
+        $('#device-id').text( m2x. );
+        $('#device-name').text( m2x. );
+        $('#device-serial').text( m2x. );
+        $('#custom_data').text( m2x.custom_data );
+    }
+});
+
+//TODO: Access JSON file!
 /*
  * The variable for the JSON flag
  */
-var jsonFlag = false;
+var jsonFlag = false; // event trigger
 var getJSON = function(url, callback){
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
@@ -86,11 +123,22 @@ function x-change(){
 	}
 }
 
+var count = 1;
+var count2 = 1;
 /*
  * On button clicked 
  */
-function turnOn(){
-	document.getElementById("on").innerHTML = "ZIZ is now activated";
+function turnOn(btn){
+	var property = document.getElementById(btn);
+        if (count == 0) {
+            property.style.backgroundColor = "#000000"
+            count = 1;        
+        }
+        else {
+            property.style.backgroundColor = "#7FFF00"
+            count = 0;
+        }
+	// document.getElementByTagName('button').innerHTML = "ZIZ is now activated";
 	// document.getElementById("colorOn").style.background = 'green';
 	// $("#on").on('click', function(){
 	// 	$("#colorOn").fadeIn();
@@ -101,8 +149,17 @@ function turnOn(){
 /*
  * Off button clicked
  */
-function turnOff(){
-	document.getElementById("off").innerHTML = "ZIZ is now deactivated";
+function turnOff(btn){
+	var property = document.getElementById(btn);
+        if (count2 == 0) {
+            property.style.backgroundColor = "#000000"
+            count2 = 1;        
+        }
+        else {
+            property.style.backgroundColor = "#7FFF00"
+            count2 = 0;
+        }
+	// document.getElementByTagName('button').innerHTML = "ZIZ is now deactivated";
 // 	document.getElementById("colorOff").style.background = 'grey';
 // 	$("#off").on('click', function(){
 // 		$("#colorOff").fadeIn();
