@@ -6,20 +6,37 @@
 	<!--TITLE-->
 	<title>ZIZ</title>
 	<!--FAVICON-->
-	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<!--STYLE-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<style type="text/css">
+		.center {
+			margin: auto; 
+			display: inline-block;
+			padding: 30px;
+			height: 200px;
+			vertical-align: middle;
+		}
+		.center p{
+			line-height: 1.5;    		
+    		text-align: center;
+		}
+	</style>
 </head>
 <body>
 <!--BODY-->
-<h1 align="middle">ZIZ</h1><br>
-<img src="./assets/img/logo_ziz.png" alt="ZIZ logo" style="margin: auto;"><br>
-<i><p align="middle">Securing your devices.</p></i>
+<br>
+<div class="center">
+	<img src="./assets/img/ziz_logo_dark.png" alt="ZIZ logo"><br>
+	<i><p align="middle">Securing your devices.</p></i>
+</div>
 <br><hr><br>
 <button onclick="turnOn()" style="float: center; margin: auto;">On</button><br>
 <p id="on colorOn"></p><br>
 <button onclick="turnOff()" style="float: center; margin: auto;">Off</button><br>
 <p id="off colorOff"></p><br>
+<button class="btn-primary"><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
 
 <!--SCRIPT-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
