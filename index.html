@@ -32,32 +32,68 @@
 	<i><p align="middle">Securing your devices.</p></i>
 </div>
 <br><hr><br>
-<button onclick="turnOn()" style="float: center; margin: auto;">On</button><br>
-<p id="on colorOn"></p><br>
+<p id="changed">
+	<button onclick="turnOn()" style="float: center; margin: auto;">On</button><br>
+<p id="on"></p><br>
 <button onclick="turnOff()" style="float: center; margin: auto;">Off</button><br>
-<p id="off colorOff"></p><br>
+<p id="off"></p><br>
 <button class="btn-primary"><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
+</p>
 
 <!--SCRIPT-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script type="text/javascript">
+// Request bin JSON
+var jsonFlag = false;
+var getJSON = function(url, callback){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+	xhr.responseType = 'json';
+	xhr.onload = function(){
+		var status = xhr.status;
+		if(status === 200){
+			callback(null, xhr.response);
+			jsonFlag = true;
+		} else {
+			callback(status, xhr.response);
+		}
+	};
+	xhr.send();
+};
+
+function x-change(){
+	getJSON('https://requestb.in/vbe4o6vb?inspect#1b501f',
+		function(err, data){
+			if(err !== null){
+				alert('Something went wrong: ' + err);
+			} else {
+				alert('Your query count: ' + data.query.count);
+			}
+		});
+	if(jsonFlag){
+		document.getElementById("changed").style.background = 'red';
+	} else {
+		alert('Sorry, could not get JSON')
+	}
+}
+
 function turnOn(){
 	document.getElementById("on").innerHTML = "ZIZ is now activated";
-	document.getElementById("colorOn").body.style.background = 'green';
-	$("#on").on('click', function(){
-		$("#colorOn").fadeIn();
-		$("#colorOn").fadeOut();
-	});
+	// document.getElementById("colorOn").style.background = 'green';
+	// $("#on").on('click', function(){
+	// 	$("#colorOn").fadeIn();
+	// 	$("#colorOn").fadeOut();
+	// });
 }
 function turnOff(){
 	document.getElementById("off").innerHTML = "ZIZ is now deactivated";
-	document.getElementById("colorOff").body.style.background = 'grey';
-	$("#off").on('click', function(){
-		$("#colorOff").fadeIn();
-		$("#colorOff").fadeOut();
-	});
-}
+// 	document.getElementById("colorOff").style.background = 'grey';
+// 	$("#off").on('click', function(){
+// 		$("#colorOff").fadeIn();
+// 		$("#colorOff").fadeOut();
+// 	});
+// }
 </script>
 </body>
 </html>
