@@ -57,7 +57,9 @@
 			from { opacity: 0; }
 			to   { opacity: 1; }
 		}
-
+		.bg {
+			background-color: yellow;
+		}
 	</style>
 </head>
 <body>
@@ -68,9 +70,10 @@
 		<img src="./assets/img/ziz_logo_dark.png" alt="ZIZ logo"><br>
 		<i><p align="middle">Securing your devices.</p></i>
 	</div>
-	<br><hr><br>
+	<br><hr>
 	<!--Background color change-->
-	<p id="changed">
+	<div class="bg"><br>
+		<p id="changed">
 		<!--On button-->
 		<form>
 			<input type="button" id="button" value="On" name="On" style="display: block; margin: auto;" onclick="turnOn('button')">
@@ -82,10 +85,11 @@
 		</form>
 		<p id="off"></p><br>
 		<!--Request Bin link to view JSON-->
-		<button class="btn-primary" style="display: block; margin: auto;""><a href="https://requestb.in/vbe4o6vb?inspect#1b501f">Request Bin</a>Request Bin</button>
+		<button class="btn-danger" style="display: block; margin: auto;""><a href="https://requestb.in/vbe4o6vb?inspect#1b501f"><strong>Request Bin</strong></a></button>
 	</p>
 	<br><br>
 	<!--Request Bin data-->
+	<div class="container">
 		<ul>
 		<div id="test">
 			<li>Trigger: <span id="trigger">X-Axis changed</span></li>
@@ -113,7 +117,12 @@
 				<li>Message: <span id="custom_data">ZiZ has been activated</span></li>
 			</div>
 			
-		</ul>
+		</ul><br>
+	</div>
+	</div>
+	
+	<hr><br>
+	<strong><footer align="middle">Copyright &copy; 2017. ZiZ.</footer><br></strong>
 
 
 	<!--SCRIPT-->
